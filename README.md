@@ -1,15 +1,26 @@
-# psxrip.sh
+# PSX Rip
 Bash script to backup Playstation (PSX) games in Linux
 
-Script for ripping PSX game discs into .bin files with corresponding .cue files.
+# psxrip.sh
+Script for ripping PSX game discs into `.bin` files with corresponding `.cue` files.
 
-> Usage:
->  psxrip.sh [{--outputdir} <value>] [{--drive} <value>] [{--disable-subchan] [{--help|-h}] [--enable-fast-rip] [--use-raw-driver] FILENAME
+# Requirements 
+
+This tool requires the following to be installed and available in PATH.
+
+ * cdrdao (http://cdrdao.sourceforge.net/) 
+
+# Usage
+
+```bash
+psxrip.sh [{--outputdir} <value>] [{--drive} <value>] [{--disable-subchan] [{--help|-h}] [--enable-fast-rip] [--use-raw-driver] FILENAME
+```
+
+> The parameter `FILENAME` is __mandatory__. Without it, the script will abort.
 >
-> The parameter FILENAME is mandatory. Without it, the script will abort. Plain
-spaces in the filename are prohibited!
->
->Available switches:
+> Plain spaces &nbsp in the filename are __prohibited__!
+
+## Available switches:
 >  --drive       		Define the device to be used. If this parameter is not
 >                		provided, /dev/cdrom will be used.
 >
@@ -35,19 +46,26 @@ spaces in the filename are prohibited!
 >
 >  --disable-eject      Disables CD-ROM eject on a successful rip
 
-This tool requires the following to be installed and available in PATH.
- * cdrdao (http://cdrdao.sourceforge.net/) 
-
-## Installation
- 1. Download psxrip.sh to machine with CD/DVD drive
- 1. chmod +x psxrip.sh
- 1. ./psxrip.sh PARAMETERS ... or put psxrip.sh in your $PATH
+# Installation
+ 1. Download [psxrip.sh](psxrip.sh) to machine with CD/DVD drive
+ 2. Permit the script to execute:
+```bash
+   chmod +x `psxrip.sh`
+```
+ 3. Use in terminal:
+    
+```bash
+./psxrip.sh PARAMETERS
+```
+  - Optionally, move `psxrip.sh` to your `$PATH`
 
 ## Configuration
- 1. Copy psxrip.example.conf to $HOME/.config/psxrip.conf
- 1. chmod o+rw $HOME/.config/psxrip.conf
- 1. Edit file for your specific needs
+ 1. Copy [the configuration example](psxrip.example.conf) to `$HOME/.config/psxrip.conf`
+ 2. Permit read and write capability:
+```bash
+chmod o+rw $HOME/.config/psxrip.conf
+```
+ 3. Edit file for your specific needs, referring to [the available options](#Available-switches).
 
-## Images tested with
-  * ePSXe 2.0.5 (64-bit)
-  
+# Images tested with
+  * [ePSXe 2.0.5 (64-bit)](https://www.epsxe.com/files/ePSXe205linux.zip)
